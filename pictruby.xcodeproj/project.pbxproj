@@ -11,6 +11,17 @@
 		5296CB251B273F5C00DB4774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB241B273F5C00DB4774 /* AppDelegate.m */; };
 		5296CB2D1B273F5C00DB4774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB2C1B273F5C00DB4774 /* Images.xcassets */; };
 		5296CB3C1B273F5C00DB4774 /* pictrubyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB3B1B273F5C00DB4774 /* pictrubyTests.m */; };
+		5296CB551B2742AB00DB4774 /* FileViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB541B2742AB00DB4774 /* FileViewController.mm */; };
+		5296CB581B2742C800DB4774 /* FCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB571B2742C800DB4774 /* FCFileManager.m */; };
+		5296CB631B2743F500DB4774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5296CB621B2743F500DB4774 /* UIKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		5296CB661B27448F00DB4774 /* SelectViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB651B27448F00DB4774 /* SelectViewController.mm */; };
+		5296CB691B2744C500DB4774 /* EditViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB681B2744C500DB4774 /* EditViewController.mm */; };
+		5296CB721B2744FB00DB4774 /* ICRangeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB6D1B2744FB00DB4774 /* ICRangeUtils.m */; };
+		5296CB731B2744FB00DB4774 /* ICRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB6F1B2744FB00DB4774 /* ICRegularExpression.m */; };
+		5296CB741B2744FB00DB4774 /* ICTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB711B2744FB00DB4774 /* ICTextView.m */; };
+		5296CB771B27451100DB4774 /* RubyHighlightingTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB761B27451100DB4774 /* RubyHighlightingTextStorage.m */; };
+		5296CB7A1B27452600DB4774 /* HelpViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB791B27452600DB4774 /* HelpViewController.mm */; };
+		5296CB7D1B27456C00DB4774 /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB7C1B27456C00DB4774 /* SampleViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +44,28 @@
 		5296CB351B273F5C00DB4774 /* pictrubyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pictrubyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5296CB3A1B273F5C00DB4774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5296CB3B1B273F5C00DB4774 /* pictrubyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pictrubyTests.m; sourceTree = "<group>"; };
+		5296CB531B2742AB00DB4774 /* FileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileViewController.h; sourceTree = "<group>"; };
+		5296CB541B2742AB00DB4774 /* FileViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileViewController.mm; sourceTree = "<group>"; };
+		5296CB561B2742C800DB4774 /* FCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCFileManager.h; sourceTree = "<group>"; };
+		5296CB571B2742C800DB4774 /* FCFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCFileManager.m; sourceTree = "<group>"; };
+		5296CB621B2743F500DB4774 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5296CB641B27448F00DB4774 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
+		5296CB651B27448F00DB4774 /* SelectViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectViewController.mm; sourceTree = "<group>"; };
+		5296CB671B2744C500DB4774 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		5296CB681B2744C500DB4774 /* EditViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditViewController.mm; sourceTree = "<group>"; };
+		5296CB6B1B2744FB00DB4774 /* ICPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPreprocessor.h; sourceTree = "<group>"; };
+		5296CB6C1B2744FB00DB4774 /* ICRangeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRangeUtils.h; sourceTree = "<group>"; };
+		5296CB6D1B2744FB00DB4774 /* ICRangeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRangeUtils.m; sourceTree = "<group>"; };
+		5296CB6E1B2744FB00DB4774 /* ICRegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRegularExpression.h; sourceTree = "<group>"; };
+		5296CB6F1B2744FB00DB4774 /* ICRegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRegularExpression.m; sourceTree = "<group>"; };
+		5296CB701B2744FB00DB4774 /* ICTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICTextView.h; sourceTree = "<group>"; };
+		5296CB711B2744FB00DB4774 /* ICTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICTextView.m; sourceTree = "<group>"; };
+		5296CB751B27451100DB4774 /* RubyHighlightingTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RubyHighlightingTextStorage.h; sourceTree = "<group>"; };
+		5296CB761B27451100DB4774 /* RubyHighlightingTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RubyHighlightingTextStorage.m; sourceTree = "<group>"; };
+		5296CB781B27452600DB4774 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		5296CB791B27452600DB4774 /* HelpViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HelpViewController.mm; sourceTree = "<group>"; };
+		5296CB7B1B27456C00DB4774 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
+		5296CB7C1B27456C00DB4774 /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5296CB631B2743F500DB4774 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +90,7 @@
 		5296CB131B273F5C00DB4774 = {
 			isa = PBXGroup;
 			children = (
+				5296CB621B2743F500DB4774 /* UIKit.framework */,
 				5296CB1E1B273F5C00DB4774 /* pictruby */,
 				5296CB381B273F5C00DB4774 /* pictrubyTests */,
 				5296CB1D1B273F5C00DB4774 /* Products */,
@@ -74,6 +109,21 @@
 		5296CB1E1B273F5C00DB4774 /* pictruby */ = {
 			isa = PBXGroup;
 			children = (
+				5296CB7B1B27456C00DB4774 /* SampleViewController.h */,
+				5296CB7C1B27456C00DB4774 /* SampleViewController.mm */,
+				5296CB781B27452600DB4774 /* HelpViewController.h */,
+				5296CB791B27452600DB4774 /* HelpViewController.mm */,
+				5296CB751B27451100DB4774 /* RubyHighlightingTextStorage.h */,
+				5296CB761B27451100DB4774 /* RubyHighlightingTextStorage.m */,
+				5296CB6A1B2744FB00DB4774 /* ICTextView */,
+				5296CB671B2744C500DB4774 /* EditViewController.h */,
+				5296CB681B2744C500DB4774 /* EditViewController.mm */,
+				5296CB641B27448F00DB4774 /* SelectViewController.h */,
+				5296CB651B27448F00DB4774 /* SelectViewController.mm */,
+				5296CB561B2742C800DB4774 /* FCFileManager.h */,
+				5296CB571B2742C800DB4774 /* FCFileManager.m */,
+				5296CB531B2742AB00DB4774 /* FileViewController.h */,
+				5296CB541B2742AB00DB4774 /* FileViewController.mm */,
 				5296CB231B273F5C00DB4774 /* AppDelegate.h */,
 				5296CB241B273F5C00DB4774 /* AppDelegate.m */,
 				5296CB2C1B273F5C00DB4774 /* Images.xcassets */,
@@ -106,6 +156,20 @@
 				5296CB3A1B273F5C00DB4774 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5296CB6A1B2744FB00DB4774 /* ICTextView */ = {
+			isa = PBXGroup;
+			children = (
+				5296CB6B1B2744FB00DB4774 /* ICPreprocessor.h */,
+				5296CB6C1B2744FB00DB4774 /* ICRangeUtils.h */,
+				5296CB6D1B2744FB00DB4774 /* ICRangeUtils.m */,
+				5296CB6E1B2744FB00DB4774 /* ICRegularExpression.h */,
+				5296CB6F1B2744FB00DB4774 /* ICRegularExpression.m */,
+				5296CB701B2744FB00DB4774 /* ICTextView.h */,
+				5296CB711B2744FB00DB4774 /* ICTextView.m */,
+			);
+			path = ICTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +270,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5296CB551B2742AB00DB4774 /* FileViewController.mm in Sources */,
 				5296CB251B273F5C00DB4774 /* AppDelegate.m in Sources */,
+				5296CB691B2744C500DB4774 /* EditViewController.mm in Sources */,
+				5296CB581B2742C800DB4774 /* FCFileManager.m in Sources */,
+				5296CB7D1B27456C00DB4774 /* SampleViewController.mm in Sources */,
+				5296CB771B27451100DB4774 /* RubyHighlightingTextStorage.m in Sources */,
+				5296CB721B2744FB00DB4774 /* ICRangeUtils.m in Sources */,
 				5296CB221B273F5C00DB4774 /* main.m in Sources */,
+				5296CB7A1B27452600DB4774 /* HelpViewController.mm in Sources */,
+				5296CB731B2744FB00DB4774 /* ICRegularExpression.m in Sources */,
+				5296CB741B2744FB00DB4774 /* ICTextView.m in Sources */,
+				5296CB661B27448F00DB4774 /* SelectViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
