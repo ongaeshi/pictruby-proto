@@ -10,9 +10,7 @@
 		5296CB221B273F5C00DB4774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB211B273F5C00DB4774 /* main.m */; };
 		5296CB251B273F5C00DB4774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB241B273F5C00DB4774 /* AppDelegate.m */; };
 		5296CB281B273F5C00DB4774 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB271B273F5C00DB4774 /* ViewController.m */; };
-		5296CB2B1B273F5C00DB4774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB291B273F5C00DB4774 /* Main.storyboard */; };
 		5296CB2D1B273F5C00DB4774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB2C1B273F5C00DB4774 /* Images.xcassets */; };
-		5296CB301B273F5C00DB4774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB2E1B273F5C00DB4774 /* LaunchScreen.xib */; };
 		5296CB3C1B273F5C00DB4774 /* pictrubyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB3B1B273F5C00DB4774 /* pictrubyTests.m */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +32,7 @@
 		5296CB241B273F5C00DB4774 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5296CB261B273F5C00DB4774 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5296CB271B273F5C00DB4774 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5296CB2A1B273F5C00DB4774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5296CB2C1B273F5C00DB4774 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5296CB2F1B273F5C00DB4774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5296CB351B273F5C00DB4774 /* pictrubyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pictrubyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5296CB3A1B273F5C00DB4774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5296CB3B1B273F5C00DB4774 /* pictrubyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pictrubyTests.m; sourceTree = "<group>"; };
@@ -85,9 +81,7 @@
 				5296CB241B273F5C00DB4774 /* AppDelegate.m */,
 				5296CB261B273F5C00DB4774 /* ViewController.h */,
 				5296CB271B273F5C00DB4774 /* ViewController.m */,
-				5296CB291B273F5C00DB4774 /* Main.storyboard */,
 				5296CB2C1B273F5C00DB4774 /* Images.xcassets */,
-				5296CB2E1B273F5C00DB4774 /* LaunchScreen.xib */,
 				5296CB1F1B273F5C00DB4774 /* Supporting Files */,
 			);
 			path = pictruby;
@@ -199,8 +193,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5296CB2B1B273F5C00DB4774 /* Main.storyboard in Resources */,
-				5296CB301B273F5C00DB4774 /* LaunchScreen.xib in Resources */,
 				5296CB2D1B273F5C00DB4774 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,25 +234,6 @@
 			targetProxy = 5296CB361B273F5C00DB4774 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5296CB291B273F5C00DB4774 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5296CB2A1B273F5C00DB4774 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5296CB2E1B273F5C00DB4774 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5296CB2F1B273F5C00DB4774 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5296CB3D1B273F5D00DB4774 /* Debug */ = {
