@@ -22,6 +22,9 @@
 		5296CB771B27451100DB4774 /* RubyHighlightingTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB761B27451100DB4774 /* RubyHighlightingTextStorage.m */; };
 		5296CB7A1B27452600DB4774 /* HelpViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB791B27452600DB4774 /* HelpViewController.mm */; };
 		5296CB7D1B27456C00DB4774 /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5296CB7C1B27456C00DB4774 /* SampleViewController.mm */; };
+		5296CB841B27468600DB4774 /* tabbar_files.png in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB801B27468600DB4774 /* tabbar_files.png */; };
+		5296CB851B27468600DB4774 /* tabbar_samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB811B27468600DB4774 /* tabbar_samples.png */; };
+		5296CB881B27469900DB4774 /* sample in Resources */ = {isa = PBXBuildFile; fileRef = 5296CB871B27469900DB4774 /* sample */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		5296CB791B27452600DB4774 /* HelpViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HelpViewController.mm; sourceTree = "<group>"; };
 		5296CB7B1B27456C00DB4774 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
 		5296CB7C1B27456C00DB4774 /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleViewController.mm; sourceTree = "<group>"; };
+		5296CB801B27468600DB4774 /* tabbar_files.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_files.png; sourceTree = "<group>"; };
+		5296CB811B27468600DB4774 /* tabbar_samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_samples.png; sourceTree = "<group>"; };
+		5296CB871B27469900DB4774 /* sample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sample; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 		5296CB131B273F5C00DB4774 = {
 			isa = PBXGroup;
 			children = (
+				5296CB7E1B27468600DB4774 /* resources */,
 				5296CB621B2743F500DB4774 /* UIKit.framework */,
 				5296CB1E1B273F5C00DB4774 /* pictruby */,
 				5296CB381B273F5C00DB4774 /* pictrubyTests */,
@@ -172,6 +179,24 @@
 			path = ICTextView;
 			sourceTree = "<group>";
 		};
+		5296CB7E1B27468600DB4774 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5296CB871B27469900DB4774 /* sample */,
+				5296CB7F1B27468600DB4774 /* images */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		5296CB7F1B27468600DB4774 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				5296CB801B27468600DB4774 /* tabbar_files.png */,
+				5296CB811B27468600DB4774 /* tabbar_samples.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,7 +277,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5296CB881B27469900DB4774 /* sample in Resources */,
+				5296CB851B27468600DB4774 /* tabbar_samples.png in Resources */,
 				5296CB2D1B273F5C00DB4774 /* Images.xcassets in Resources */,
+				5296CB841B27468600DB4774 /* tabbar_files.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
