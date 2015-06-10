@@ -61,6 +61,8 @@
 		5296CBF51B2747A800DB4774 /* variable.c in Sources */ = {isa = PBXBuildFile; fileRef = 5296CBD11B2747A800DB4774 /* variable.c */; };
 		5296CBF61B2747A800DB4774 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = 5296CBD21B2747A800DB4774 /* version.c */; };
 		5296CBF71B2747A800DB4774 /* vm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5296CBD31B2747A800DB4774 /* vm.c */; };
+		52B6CEF61B289780005B9C4F /* ScriptController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B6CEF51B289780005B9C4F /* ScriptController.mm */; };
+		52B6CEF81B289DE4005B9C4F /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52B6CEF71B289DE4005B9C4F /* sample.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,9 @@
 		5296CBD11B2747A800DB4774 /* variable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = variable.c; sourceTree = "<group>"; };
 		5296CBD21B2747A800DB4774 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
 		5296CBD31B2747A800DB4774 /* vm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm.c; sourceTree = "<group>"; };
+		52B6CEF41B289780005B9C4F /* ScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptController.h; sourceTree = "<group>"; };
+		52B6CEF51B289780005B9C4F /* ScriptController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScriptController.mm; sourceTree = "<group>"; };
+		52B6CEF71B289DE4005B9C4F /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,9 +204,9 @@
 		5296CB131B273F5C00DB4774 = {
 			isa = PBXGroup;
 			children = (
+				5296CB1E1B273F5C00DB4774 /* pictruby */,
 				5296CB7E1B27468600DB4774 /* resources */,
 				5296CB621B2743F500DB4774 /* UIKit.framework */,
-				5296CB1E1B273F5C00DB4774 /* pictruby */,
 				5296CB381B273F5C00DB4774 /* pictrubyTests */,
 				5296CB1D1B273F5C00DB4774 /* Products */,
 			);
@@ -219,6 +224,8 @@
 		5296CB1E1B273F5C00DB4774 /* pictruby */ = {
 			isa = PBXGroup;
 			children = (
+				52B6CEF41B289780005B9C4F /* ScriptController.h */,
+				52B6CEF51B289780005B9C4F /* ScriptController.mm */,
 				5296CB891B2747A800DB4774 /* mruby */,
 				5296CB7B1B27456C00DB4774 /* SampleViewController.h */,
 				5296CB7C1B27456C00DB4774 /* SampleViewController.mm */,
@@ -295,6 +302,7 @@
 		5296CB7F1B27468600DB4774 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				52B6CEF71B289DE4005B9C4F /* sample.jpg */,
 				5296CB801B27468600DB4774 /* tabbar_files.png */,
 				5296CB811B27468600DB4774 /* tabbar_samples.png */,
 			);
@@ -518,6 +526,7 @@
 				5296CBE41B2747A800DB4774 /* .gitkeep in Resources */,
 				5296CB841B27468600DB4774 /* tabbar_files.png in Resources */,
 				5296CBD81B2747A800DB4774 /* lex.def in Resources */,
+				52B6CEF81B289DE4005B9C4F /* sample.jpg in Resources */,
 				5296CBEB1B2747A800DB4774 /* mruby_core.rake in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +565,7 @@
 				5296CBDD1B2747A800DB4774 /* compar.c in Sources */,
 				5296CBDF1B2747A800DB4774 /* debug.c in Sources */,
 				5296CBE71B2747A800DB4774 /* init.c in Sources */,
+				52B6CEF61B289780005B9C4F /* ScriptController.mm in Sources */,
 				5296CBE51B2747A800DB4774 /* gc.c in Sources */,
 				5296CB721B2744FB00DB4774 /* ICRangeUtils.m in Sources */,
 				5296CBF01B2747A800DB4774 /* proc.c in Sources */,
@@ -685,7 +695,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = (
-					pictruby,
 					pictruby/mruby/include,
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -702,7 +711,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				HEADER_SEARCH_PATHS = (
-					pictruby,
 					pictruby/mruby/include,
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -767,6 +775,7 @@
 				5296CB411B273F5D00DB4774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5296CB421B273F5D00DB4774 /* Build configuration list for PBXNativeTarget "pictrubyTests" */ = {
 			isa = XCConfigurationList;
@@ -775,6 +784,7 @@
 				5296CB441B273F5D00DB4774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

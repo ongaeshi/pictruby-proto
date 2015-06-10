@@ -11,7 +11,7 @@
 #import "FCFileManager.h"
 #import "HelpViewController.h"
 #import "RubyHighlightingTextStorage.h"
-// #import "ScriptController.h"
+#import "ScriptController.h"
 #import "ICTextView.h"
 
 const int INDENT_WIDTH = 2;
@@ -128,12 +128,9 @@ const int PREV_LINE_MAX = 240;
     // Save file (For iOS <= 6.1)
     [self saveFileIfTouched];
 
-    // TODO: Support mruby
-    // Run
-    // char* scriptPath = (char *)[mFileName UTF8String];
-    // ScriptController* viewController = [[ScriptController alloc] initWithFrame:[[UIScreen mainScreen] bounds]
-    //                                                                 scriptName:scriptPath];
-    // [self.navigationController pushViewController:viewController animated:YES];
+    char* scriptPath = (char *)[mFileName UTF8String];
+    ScriptController* viewController = [[ScriptController alloc] initWithScriptName:scriptPath];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)tapHelpButton
