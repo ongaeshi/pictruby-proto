@@ -51,8 +51,10 @@
 
     // Call "convert()"
     int ai = mrb_gc_arena_save(mrb);
-    mrb_funcall(mrb, mrb_obj_value(mrb->kernel_module), "convert", 0);
+    mrb_value ret = mrb_funcall(mrb, mrb_obj_value(mrb->kernel_module), "convert", 0);
     mrb_gc_arena_restore(mrb, ai);
+
+    // NSLog(@"ret val : %d", mrb_fixnum(ret));
 
     return [UIImage imageNamed:@"sample.jpg"];
 }
