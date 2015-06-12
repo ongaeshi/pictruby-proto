@@ -58,7 +58,7 @@
 
     // NSLog(@"ret val : %d", mrb_fixnum(ret));
 
-    return [UIImage imageNamed:@"sample.jpg"];
+    return pictruby::BindImage::ToPtr(mrb, ret);
 }
 
 @end

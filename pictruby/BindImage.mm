@@ -1,11 +1,43 @@
 #import "BindImage.hpp"
 
 #import "mruby.h"
-#import <UIKit/UIKit.h>
+#import "mruby/class.h"
+#import "mruby/data.h"
+#import "mruby/string.h"
 
 namespace pictruby {
 
 namespace {
+void free(mrb_state *mrb, void *p)
+{
+    // TODO: retain?
+}
+
+struct mrb_data_type data_type = { "pictruby_image", free };
+
+mrb_value load(mrb_state *mrb, mrb_value self)
+{
+    UIImage* obj = [UIImage imageNamed:@"sample.jpg"];
+    return BindImage::ToMrb(mrb, obj);
+}
+
+}
+
+mrb_value BindImage::ToMrb(mrb_state* mrb, UIImage* aPtr)
+{
+    struct RData *data = mrb_data_object_alloc(mrb, mrb_class_get(mrb, "Image"), (__bridge void*)aPtr, &data_type); //TODO inc?
+    return mrb_obj_value(data);
+}
+
+
+//----------------------------------------------------------
+UIImage* BindImage::ToPtr(mrb_state* mrb, mrb_value aValue)
+{
+    if (!mrb_obj_is_instance_of(mrb, aValue, mrb_class_get(mrb, "Image"))) {
+        mrb_raise(mrb, E_TYPE_ERROR, "wrong argument class");
+    }
+
+    return (__bridge UIImage*)(DATA_PTR(aValue));
 }
 
 //----------------------------------------------------------
@@ -13,7 +45,7 @@ void BindImage::Bind(mrb_state* mrb)
 {
     struct RClass *cc = mrb_define_class(mrb, "Image", mrb->object_class);
 
-    // mrb_define_class_method(mrb , cc, "load",               load,               MRB_ARGS_REQ(1));
+    mrb_define_class_method(mrb , cc, "load",               load,               MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "sample",             sample,             MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "grab_screen",        grab_screen,        MRB_ARGS_OPT(4));
                                                              
