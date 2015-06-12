@@ -1,4 +1,6 @@
 #import "ScriptController.h"
+
+#import "BindImage.hpp"
 #import "mruby.h"
 #import "mruby/class.h"
 #import "mruby/compile.h"
@@ -39,7 +41,7 @@
     mrb_state* mrb = mrb_open();
 
     // Bind
-    // Bind::All(mrb);
+    pictruby::BindImage::Bind(mrb);
 
     // Load builtin library
     // mrb_load_irep(mrb, BuiltIn);

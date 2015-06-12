@@ -63,6 +63,7 @@
 		5296CBF71B2747A800DB4774 /* vm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5296CBD31B2747A800DB4774 /* vm.c */; };
 		52B6CEF61B289780005B9C4F /* ScriptController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B6CEF51B289780005B9C4F /* ScriptController.mm */; };
 		52B6CEF81B289DE4005B9C4F /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52B6CEF71B289DE4005B9C4F /* sample.jpg */; };
+		52D2229C1B2B491300C1E3CE /* BindImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52D2229B1B2B491300C1E3CE /* BindImage.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,8 @@
 		52B6CEF41B289780005B9C4F /* ScriptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptController.h; sourceTree = "<group>"; };
 		52B6CEF51B289780005B9C4F /* ScriptController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScriptController.mm; sourceTree = "<group>"; };
 		52B6CEF71B289DE4005B9C4F /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		52D2229A1B2B491300C1E3CE /* BindImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BindImage.hpp; sourceTree = "<group>"; };
+		52D2229B1B2B491300C1E3CE /* BindImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BindImage.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +227,8 @@
 		5296CB1E1B273F5C00DB4774 /* pictruby */ = {
 			isa = PBXGroup;
 			children = (
+				52D2229A1B2B491300C1E3CE /* BindImage.hpp */,
+				52D2229B1B2B491300C1E3CE /* BindImage.mm */,
 				52B6CEF41B289780005B9C4F /* ScriptController.h */,
 				52B6CEF51B289780005B9C4F /* ScriptController.mm */,
 				5296CB891B2747A800DB4774 /* mruby */,
@@ -547,6 +552,7 @@
 			files = (
 				5296CBE11B2747A800DB4774 /* enum.c in Sources */,
 				5296CBDE1B2747A800DB4774 /* crc.c in Sources */,
+				52D2229C1B2B491300C1E3CE /* BindImage.mm in Sources */,
 				5296CBDA1B2747A800DB4774 /* backtrace.c in Sources */,
 				5296CBE31B2747A800DB4774 /* etc.c in Sources */,
 				5296CB551B2742AB00DB4774 /* FileViewController.mm in Sources */,
