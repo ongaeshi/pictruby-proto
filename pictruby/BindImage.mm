@@ -46,6 +46,16 @@ mrb_value crop(mrb_state *mrb, mrb_value self)
     return BindImage::ToMrb(mrb, obj);
 }
 
+mrb_value height(mrb_state *mrb, mrb_value self)
+{
+    return mrb_float_value(mrb, toObj(self).size.height);
+}
+
+mrb_value width(mrb_state *mrb, mrb_value self)
+{
+    return mrb_float_value(mrb, toObj(self).size.width);
+}
+
 }
 
 //----------------------------------------------------------
@@ -75,6 +85,8 @@ void BindImage::Bind(mrb_state* mrb)
     // mrb_define_class_method(mrb , cc, "grab_screen",        grab_screen,        MRB_ARGS_OPT(4));
                                                              
     mrb_define_method(mrb, cc,        "crop",              crop,              MRB_ARGS_REQ(4));
+    mrb_define_method(mrb, cc,        "height",             height,             MRB_ARGS_NONE());
+    mrb_define_method(mrb, cc,        "width",              width,              MRB_ARGS_NONE());
     
     // mrb_define_method(mrb, cc,        "clone",              clone,              MRB_ARGS_NONE());
     // // mrb_define_method(mrb, cc,        "save",               save,               MRB_ARGS_ARG(2, 1));
