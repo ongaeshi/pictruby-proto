@@ -9,8 +9,9 @@
 
 @implementation ScriptController
 {
-    UIImageView* mImageView;
+    UIImagePickerController* mImagePicker;
     const char* mScriptPath;
+    UIImageView* mImageView;
 }
 
 - (id) initWithScriptName:(char*)scriptPath
@@ -26,7 +27,14 @@
     
     self.view.backgroundColor = [UIColor blackColor];
 
-    // TODO: Call mruby script
+    // Create ImagePicker
+    mImagePicker = [[UIImagePickerController alloc] init];
+    [mImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [mImagePicker setAllowsEditing:YES];
+    [mImagePicker setDelegate:self];
+    // [self presentViewController:mImagePicker animated:YES completion:nil];
+
+    // Call mruby script
     UIImage *image = [self callScript];
 
     // TODO: Adjust navbar
@@ -34,6 +42,15 @@
     mImageView.frame = self.view.frame;
     mImageView.contentMode = UIViewContentModeScaleAspectFit; //UIViewContentModeCenter?
     [self.view addSubview:mImageView];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+    if (image) {
+    }
+
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage*)callScript

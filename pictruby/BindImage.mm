@@ -33,6 +33,18 @@ mrb_value load(mrb_state *mrb, mrb_value self)
     return BindImage::ToMrb(mrb, obj);
 }
 
+mrb_value pick_from_library(mrb_state *mrb, mrb_value self)
+{
+    // if (sImagePicker == NULL) {
+    //     sImagePicker = new ofxiOSImagePicker();
+    //     // sImagePicker->setMaxDimension(480);
+    // }
+
+    // sImagePicker->openLibrary();
+
+    return mrb_nil_value();
+}
+
 mrb_value crop(mrb_state *mrb, mrb_value self)
 {
     UIImage* obj = toObj(self);
@@ -81,6 +93,7 @@ void BindImage::Bind(mrb_state* mrb)
     struct RClass *cc = mrb_define_class(mrb, "Image", mrb->object_class);
 
     mrb_define_class_method(mrb , cc, "load",               load,               MRB_ARGS_REQ(1));
+    mrb_define_class_method(mrb , cc, "pick_from_library",  load,               MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "sample",             sample,             MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "grab_screen",        grab_screen,        MRB_ARGS_OPT(4));
                                                              
