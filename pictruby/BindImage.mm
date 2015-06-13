@@ -8,6 +8,11 @@
 namespace pictruby {
 
 namespace {
+UIImage* toObj(mrb_value self)
+{
+    return (__bridge UIImage*)DATA_PTR(self);
+}
+
 void free(mrb_state *mrb, void *p)
 {
     // TODO: retain?
@@ -28,14 +33,27 @@ mrb_value load(mrb_state *mrb, mrb_value self)
     return BindImage::ToMrb(mrb, obj);
 }
 
+mrb_value crop(mrb_state *mrb, mrb_value self)
+{
+    UIImage* obj = toObj(self);
+        
+    mrb_int x, y, w, h;
+    mrb_get_args(mrb, "iiii", &x, &y, &w, &h);
+
+    CGImageRef ref = CGImageCreateWithImageInRect(obj.CGImage, CGRectMake(x, y, w, h));
+    obj = [UIImage imageWithCGImage:ref];
+    
+    return BindImage::ToMrb(mrb, obj);
 }
 
+}
+
+//----------------------------------------------------------
 mrb_value BindImage::ToMrb(mrb_state* mrb, UIImage* aPtr)
 {
     struct RData *data = mrb_data_object_alloc(mrb, mrb_class_get(mrb, "Image"), (__bridge void*)aPtr, &data_type); //TODO inc?
     return mrb_obj_value(data);
 }
-
 
 //----------------------------------------------------------
 UIImage* BindImage::ToPtr(mrb_state* mrb, mrb_value aValue)
@@ -56,6 +74,8 @@ void BindImage::Bind(mrb_state* mrb)
     // mrb_define_class_method(mrb , cc, "sample",             sample,             MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "grab_screen",        grab_screen,        MRB_ARGS_OPT(4));
                                                              
+    mrb_define_method(mrb, cc,        "crop",              crop,              MRB_ARGS_REQ(4));
+    
     // mrb_define_method(mrb, cc,        "clone",              clone,              MRB_ARGS_NONE());
     // // mrb_define_method(mrb, cc,        "save",               save,               MRB_ARGS_ARG(2, 1));
     // mrb_define_method(mrb, cc,        "color",              color,              MRB_ARGS_REQ(2));
