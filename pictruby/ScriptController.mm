@@ -11,6 +11,7 @@
 {
     const char* mScriptPath;
     mrb_state* mMrb;
+    mrb_value mFiber;
     NSTimer* mTimer;
     int mValue;
     UIImagePickerController* mImagePicker;
@@ -48,17 +49,11 @@
 
 - (void)timerProcess
 {
-    // Call mruby script
-    UIImage *image = [self callScript];
+    if (!mMrb) {
+        return;
+    }
 
-    mValue++;
-    NSLog(@"timer %d", mValue);
-
-    // TODO: Adjust navbar
-    mImageView = [[UIImageView alloc] initWithImage:image];
-    mImageView.frame = self.view.frame;
-    mImageView.contentMode = UIViewContentModeScaleAspectFit; //UIViewContentModeCenter?
-    [self.view addSubview:mImageView];
+    [self callScript];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -84,20 +79,32 @@
     FILE *fd = fopen(mScriptPath, "r");
     mrb_load_file(mMrb, fd);
     fclose(fd);
+
+    // Create fiber
+    mFiber = mrb_funcall(mMrb, mrb_obj_value(mMrb->kernel_module), "make_convert_to_fiber", 0);
 }
 
-- (UIImage*)callScript
+- (void)callScript
 {
-    // Call "convert()"
-    int ai = mrb_gc_arena_save(mMrb);
-    mrb_value ret = mrb_funcall(mMrb, mrb_obj_value(mMrb->kernel_module), "convert", 0);
-    mrb_gc_arena_restore(mMrb, ai);
+    mrb_value ret = mrb_funcall(mMrb, mFiber, "execute", 0, NULL);
+    mrb_p(mMrb, ret);
+    mrb_value isAlive = mrb_funcall(mMrb, mFiber, "continue?", 0 , NULL);
+    mrb_p(mMrb, isAlive);
 
-    // NSLog(@"ret val : %d", mrb_fixnum(ret));
+    if (mrb_obj_eq(mMrb, isAlive, mrb_false_value())) {
+        UIImage* image = pictruby::BindImage::ToPtr(mMrb, ret);
 
-    // TODO: mrb_close
+        // TODO: Adjust navbar
+        mImageView = [[UIImageView alloc] initWithImage:image];
+        mImageView.frame = self.view.frame;
+        mImageView.contentMode = UIViewContentModeScaleAspectFit; //UIViewContentModeCenter?
+        [self.view addSubview:mImageView];
 
-    return pictruby::BindImage::ToPtr(mMrb, ret);
+        // End script
+        // TODO: Stop timer
+        mrb_close(mMrb);
+        mMrb = NULL;
+    }
 }
 
 @end
