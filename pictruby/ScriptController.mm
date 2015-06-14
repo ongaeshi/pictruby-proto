@@ -9,10 +9,11 @@
 
 @implementation ScriptController
 {
+    const char* mScriptPath;
+    mrb_state* mMrb;
     NSTimer* mTimer;
     int mValue;
     UIImagePickerController* mImagePicker;
-    const char* mScriptPath;
     UIImageView* mImageView;
     
 }
@@ -30,10 +31,6 @@
     
     self.view.backgroundColor = [UIColor blackColor];
 
-    // Create timer
-    mTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(timerProcess) userInfo:nil repeats:YES];
-    mValue = 0;
-
     // Create ImagePicker
     mImagePicker = [[UIImagePickerController alloc] init];
     [mImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -41,20 +38,27 @@
     [mImagePicker setDelegate:self];
     // [self presentViewController:mImagePicker animated:YES completion:nil];
 
+    // Create timer
+    mTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(timerProcess) userInfo:nil repeats:YES];
+    mValue = 0;
+
+    // Init mruby
+    [self initScript];
+}
+
+- (void)timerProcess
+{
     // Call mruby script
     UIImage *image = [self callScript];
+
+    mValue++;
+    NSLog(@"timer %d", mValue);
 
     // TODO: Adjust navbar
     mImageView = [[UIImageView alloc] initWithImage:image];
     mImageView.frame = self.view.frame;
     mImageView.contentMode = UIViewContentModeScaleAspectFit; //UIViewContentModeCenter?
     [self.view addSubview:mImageView];
-}
-
-- (void)timerProcess
-{
-    mValue++;
-    NSLog(@"timer %d", mValue);
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -66,29 +70,34 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (UIImage*)callScript
+- (void)initScript
 {
-    mrb_state* mrb = mrb_open();
+    mMrb = mrb_open();
 
     // Bind
-    pictruby::BindImage::Bind(mrb);
+    pictruby::BindImage::Bind(mMrb);
 
     // Load builtin library
-    // mrb_load_irep(mrb, BuiltIn);
-    
+    // mrb_load_irep(mMrb, BuiltIn);
+
     // Load user script
     FILE *fd = fopen(mScriptPath, "r");
-    mrb_load_file(mrb, fd);
+    mrb_load_file(mMrb, fd);
     fclose(fd);
+}
 
+- (UIImage*)callScript
+{
     // Call "convert()"
-    int ai = mrb_gc_arena_save(mrb);
-    mrb_value ret = mrb_funcall(mrb, mrb_obj_value(mrb->kernel_module), "convert", 0);
-    mrb_gc_arena_restore(mrb, ai);
+    int ai = mrb_gc_arena_save(mMrb);
+    mrb_value ret = mrb_funcall(mMrb, mrb_obj_value(mMrb->kernel_module), "convert", 0);
+    mrb_gc_arena_restore(mMrb, ai);
 
     // NSLog(@"ret val : %d", mrb_fixnum(ret));
 
-    return pictruby::BindImage::ToPtr(mrb, ret);
+    // TODO: mrb_close
+
+    return pictruby::BindImage::ToPtr(mMrb, ret);
 }
 
 @end
