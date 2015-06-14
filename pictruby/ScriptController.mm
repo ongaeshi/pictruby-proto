@@ -9,9 +9,12 @@
 
 @implementation ScriptController
 {
+    NSTimer* mTimer;
+    int mValue;
     UIImagePickerController* mImagePicker;
     const char* mScriptPath;
     UIImageView* mImageView;
+    
 }
 
 - (id) initWithScriptName:(char*)scriptPath
@@ -26,6 +29,10 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor blackColor];
+
+    // Create timer
+    mTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(timerProcess) userInfo:nil repeats:YES];
+    mValue = 0;
 
     // Create ImagePicker
     mImagePicker = [[UIImagePickerController alloc] init];
@@ -42,6 +49,12 @@
     mImageView.frame = self.view.frame;
     mImageView.contentMode = UIViewContentModeScaleAspectFit; //UIViewContentModeCenter?
     [self.view addSubview:mImageView];
+}
+
+- (void)timerProcess
+{
+    mValue++;
+    NSLog(@"timer %d", mValue);
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
