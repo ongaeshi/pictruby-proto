@@ -76,8 +76,12 @@ mrb_value width(mrb_state *mrb, mrb_value self)
 //----------------------------------------------------------
 mrb_value BindImage::ToMrb(mrb_state* mrb, UIImage* aPtr)
 {
-    struct RData *data = mrb_data_object_alloc(mrb, mrb_class_get(mrb, "Image"), (__bridge void*)aPtr, &data_type); //TODO inc?
-    return mrb_obj_value(data);
+    if (aPtr) {
+        struct RData *data = mrb_data_object_alloc(mrb, mrb_class_get(mrb, "Image"), (__bridge void*)aPtr, &data_type); //TODO inc?
+        return mrb_obj_value(data);
+    } else {
+        return mrb_nil_value();
+    }
 }
 
 //----------------------------------------------------------
