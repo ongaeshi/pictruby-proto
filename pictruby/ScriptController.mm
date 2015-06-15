@@ -74,6 +74,13 @@
 
     // Load builtin library
     // mrb_load_irep(mMrb, BuiltIn);
+    {
+        NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"builtin.rb"];
+        char* scriptPath = (char *)[path UTF8String];
+        FILE *fd = fopen(scriptPath, "r");
+        mrb_load_file(mMrb, fd);
+        fclose(fd);
+    }
 
     // Load user script
     FILE *fd = fopen(mScriptPath, "r");
