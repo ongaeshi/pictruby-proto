@@ -4,10 +4,13 @@
 #import "mruby/class.h"
 #import "mruby/data.h"
 #import "mruby/string.h"
+#import "ScriptController.h"
 
 namespace pictruby {
 
 namespace {
+ScriptController *fScriptController;
+
 UIImage* toObj(mrb_value self)
 {
     return (__bridge UIImage*)DATA_PTR(self);
@@ -33,16 +36,16 @@ mrb_value load(mrb_state *mrb, mrb_value self)
     return BindImage::ToMrb(mrb, obj);
 }
 
-mrb_value pick_from_library(mrb_state *mrb, mrb_value self)
+mrb_value start_pick_from_library(mrb_state *mrb, mrb_value self)
 {
-    // if (sImagePicker == NULL) {
-    //     sImagePicker = new ofxiOSImagePicker();
-    //     // sImagePicker->setMaxDimension(480);
-    // }
-
-    // sImagePicker->openLibrary();
-
+    [fScriptController startPickFromLibrary];
     return mrb_nil_value();
+}
+
+mrb_value receive_picked(mrb_state *mrb, mrb_value self)
+{
+    UIImage* image = [fScriptController receivePicked];
+    return BindImage::ToMrb(mrb, image);
 }
 
 mrb_value crop(mrb_state *mrb, mrb_value self)
@@ -88,12 +91,19 @@ UIImage* BindImage::ToPtr(mrb_state* mrb, mrb_value aValue)
 }
 
 //----------------------------------------------------------
+void BindImage::SetScriptController(void* aScriptController)
+{
+    fScriptController = (__bridge ScriptController*)aScriptController;
+}
+
+//----------------------------------------------------------
 void BindImage::Bind(mrb_state* mrb)
 {
     struct RClass *cc = mrb_define_class(mrb, "Image", mrb->object_class);
 
     mrb_define_class_method(mrb , cc, "load",               load,               MRB_ARGS_REQ(1));
-    mrb_define_class_method(mrb , cc, "pick_from_library",  load,               MRB_ARGS_REQ(1));
+    mrb_define_class_method(mrb , cc, "start_pick_from_library",  start_pick_from_library, MRB_ARGS_NONE());
+    mrb_define_class_method(mrb , cc, "receive_picked",  receive_picked,          MRB_ARGS_NONE());
     // mrb_define_class_method(mrb , cc, "sample",             sample,             MRB_ARGS_REQ(1));
     // mrb_define_class_method(mrb , cc, "grab_screen",        grab_screen,        MRB_ARGS_OPT(4));
                                                              

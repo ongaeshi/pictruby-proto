@@ -16,7 +16,7 @@
     int mValue;
     UIImagePickerController* mImagePicker;
     UIImageView* mImageView;
-    
+    UIImage* mReceivePicked;
 }
 
 - (id) initWithScriptName:(char*)scriptPath
@@ -37,7 +37,6 @@
     [mImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [mImagePicker setAllowsEditing:YES];
     [mImagePicker setDelegate:self];
-    // [self presentViewController:mImagePicker animated:YES completion:nil];
 
     // Create timer
     mTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/30.0 target:self selector:@selector(timerProcess) userInfo:nil repeats:YES];
@@ -60,6 +59,7 @@
 {
     UIImage *image = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
     if (image) {
+        mReceivePicked = image;
     }
 
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -71,6 +71,7 @@
 
     // Bind
     pictruby::BindImage::Bind(mMrb);
+    pictruby::BindImage::SetScriptController((__bridge void*)self);
 
     // Load builtin library
     // mrb_load_irep(mMrb, BuiltIn);
@@ -112,6 +113,19 @@
         mrb_close(mMrb);
         mMrb = NULL;
     }
+}
+
+- (void) startPickFromLibrary
+{
+    mReceivePicked = NULL;
+    [self presentViewController:mImagePicker animated:YES completion:nil];
+}
+
+- (UIImage*) receivePicked
+{
+    UIImage* img = mReceivePicked;
+    mReceivePicked = NULL;
+    return img;
 }
 
 @end
