@@ -18,7 +18,7 @@ UIImage* toObj(mrb_value self)
 
 void free(mrb_state *mrb, void *p)
 {
-    // TODO: retain?
+    [(UIImage*)p release];
 }
 
 struct mrb_data_type data_type = { "pictruby_image", free };
@@ -31,7 +31,7 @@ mrb_value load(mrb_state *mrb, mrb_value self)
     const char* path = mrb_string_value_ptr(mrb, str);
     NSString *npath = [[NSString alloc] initWithUTF8String:path];
 
-    UIImage* obj = [UIImage imageNamed:npath];
+    UIImage* obj = [[UIImage imageNamed:npath] retain];
     
     return BindImage::ToMrb(mrb, obj);
 }
@@ -44,7 +44,7 @@ mrb_value start_pick_from_library(mrb_state *mrb, mrb_value self)
 
 mrb_value receive_picked(mrb_state *mrb, mrb_value self)
 {
-    UIImage* image = [fScriptController receivePicked];
+    UIImage* image = [[fScriptController receivePicked] retain];
     return BindImage::ToMrb(mrb, image);
 }
 
