@@ -64,7 +64,7 @@
 		52A3704B1B2F32E000F88052 /* builtin.rb in Resources */ = {isa = PBXBuildFile; fileRef = 52A3704A1B2F32E000F88052 /* builtin.rb */; };
 		52B6CEF61B289780005B9C4F /* ScriptController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52B6CEF51B289780005B9C4F /* ScriptController.mm */; };
 		52B6CEF81B289DE4005B9C4F /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 52B6CEF71B289DE4005B9C4F /* sample.jpg */; };
-		52D2229C1B2B491300C1E3CE /* BindImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52D2229B1B2B491300C1E3CE /* BindImage.mm */; };
+		52D2229C1B2B491300C1E3CE /* BindImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52D2229B1B2B491300C1E3CE /* BindImage.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
